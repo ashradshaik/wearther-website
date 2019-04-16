@@ -8,6 +8,7 @@ const express = require('express')
 const hbs = require('hbs')
 const chalk = require('chalk')
 const app = express() 
+const prot = process.env.PORT || 3000
 
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
@@ -104,6 +105,6 @@ app.get('*', (req, res)=>{ //* is match anything
 })
 
 //runing server
-app.listen(3000, ()=>{  //this is the port send to browser to get the response and another callback function
-    console.log('server is up on port 3000')
+app.listen(port, ()=>{  //this is the port send to browser to get the response and another callback function
+    console.log('server is up on port'+port)
 })

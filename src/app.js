@@ -7,8 +7,7 @@ const path = require('path') //path module provide the directories  and file pat
 const express = require('express')
 const hbs = require('hbs')
 const chalk = require('chalk')
-
-const app = express()
+const app = express() 
 
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')

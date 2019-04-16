@@ -1,6 +1,3 @@
-console.log("Client side scripts")
-
-
 //fetching the data from the url and then it will do the call back fucntion.
 //inside the callback we again making that url into json and then againg passing the data into a callback function
 // fetch('http://puzzle.mead.io/puzzle').then((response)=>{

@@ -8,7 +8,7 @@ const express = require('express')
 const hbs = require('hbs')
 const chalk = require('chalk')
 const app = express() 
-const prot = process.env.PORT || 3000
+const port = process.env.PORT || 3000
 
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')

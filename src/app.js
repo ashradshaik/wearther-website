@@ -106,5 +106,5 @@ app.get('*', (req, res)=>{ //* is match anything
 
 //runing server
 app.listen(port, ()=>{  //this is the port send to browser to get the response and another callback function
-    console.log('server is up on port'+port)
+    console.log('server is up on port' +  port)
 })

@@ -14,7 +14,9 @@ const forecast = (longitute, latitute, callback) =>{
                 summary: body.daily.data[0].summary,
                 rainPercentage: body.currently.precipProbability+'%',
                 temperature: body.currently.temperature,
-                timezone: body.timezone
+                timezone: body.timezone,
+                humidity: body.daily.data[1].humidity
+
             })
         }
     })

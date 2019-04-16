@@ -39,7 +39,7 @@ weatherForm.addEventListener('submit', (e)=>{
                 message1.textContent = data.error
             }else{
                 message1.textContent = "Location: "+data.location
-                message2.textContent = "Address: "+data.address+", Temperature: "+data.forecastData.temperature
+                message2.textContent = "Address: "+data.address+", Temperature: "+data.forecastData.temperature+", Humidity:"+data.forecastData.humidity
                 message3.textContent = "Summary:"+data.forecastData.summary+ ", Timezone: "+data.forecastData.timezone
                 console.log(data)
             }

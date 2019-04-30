@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000
 
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
-
+const socketio = require('socket.io') 
 //hbs - handlebars is a method that we can use dynamically (header, footer) for all pages
 
 // defining paths for express config 
@@ -73,6 +73,22 @@ app.get("/weather", (req, res)=> {
                 location,
                 address: address
             })
+        })
+    })
+})
+
+app.get('/location', (req, res)=>{
+    let latitude = req.query.latitude
+    let longitude = req.query.longitude
+    //console.log(`${latitude}, ${longitude}`)
+    forecast(longitude, latitude, (error, forecastData)=>{
+        if(error){
+            return res.send({ error })
+        }
+        res.send({
+            forecastData: forecastData,
+            //location,
+            //address: address
         })
     })
 })

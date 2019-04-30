@@ -22,6 +22,7 @@ const search = document.querySelector('input')
 const message1 = document.querySelector('#message-1')
 const message2 = document.querySelector('#message-2')
 const message3 = document.querySelector('#message-3')
+const sendLocationButton = document.querySelector('#sendLocation')
 
 //message1.textContent = "From Javascript"
 
@@ -46,4 +47,26 @@ weatherForm.addEventListener('submit', (e)=>{
         })
     })
     console.log(location)
+})
+
+sendLocationButton.addEventListener('click', ()=>{
+    
+    if(!navigator.geolocation){
+        return alert('Geolocation is not supported by your browser.')
+    }
+    navigator.geolocation.getCurrentPosition((position)=>{
+        //console.log(position)
+
+        const latitude = position.coords.latitude
+        const longitude = position.coords.longitude
+        //console.log(`${latitude}, ${longitude}`)
+        message1.textContent = "Loading ...."
+        fetch("/location?latitude="+latitude+'&longitude='+longitude).then((response)=>{
+            response.json().then((data)=>{
+                message1.textContent = "Teparature: "+data.forecastData.temperature
+                message2.textContent = "Summary:"+data.forecastData.summary+ ", Timezone: "+data.forecastData.timezone
+                message3.textContent = "Humidity:"+data.forecastData.humidity     
+            })
+        })
+    })
 })
